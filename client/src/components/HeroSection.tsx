@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import heroImage from "@assets/generated_images/Professional_developer_headshot_photo_186eff02.png";
+import heroImage from "@assets/Kavisha_1761914756981.jpg";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -33,8 +33,8 @@ export default function HeroSection() {
               className="text-5xl lg:text-6xl font-bold tracking-tight"
               style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Full-Stack Developer
-              <span className="block text-primary mt-2">Building Digital Excellence</span>
+              Kavisha Parikh
+              <span className="block text-primary mt-2">Software Developer</span>
             </motion.h1>
             
             <motion.p
@@ -43,9 +43,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg text-muted-foreground max-w-lg"
             >
-              Experienced developer with 3+ years creating scalable web applications, 
-              cloud integrations, and enterprise solutions. Specialized in delivering 
-              high-quality code with modern technologies.
+              Experienced full-stack developer with 3.5+ years specializing in React.js, 
+              TypeScript, and modern web technologies. Passionate about building scalable, 
+              high-performance applications with exceptional user experiences.
             </motion.p>
             
             <motion.div
@@ -85,13 +85,20 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 1 }}
               className="flex gap-4 pt-4"
             >
-              <Button size="icon" variant="ghost" data-testid="button-github">
-                <Github className="w-5 h-5" />
-              </Button>
-              <Button size="icon" variant="ghost" data-testid="button-linkedin">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                data-testid="button-linkedin"
+                onClick={() => window.open('https://www.linkedin.com/in/kavisha-parikh', '_blank')}
+              >
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button size="icon" variant="ghost" data-testid="button-email">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                data-testid="button-email"
+                onClick={() => window.location.href = 'mailto:kavishap05@gmail.com'}
+              >
                 <Mail className="w-5 h-5" />
               </Button>
             </motion.div>
@@ -111,8 +118,8 @@ export default function HeroSection() {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-2xl" />
               <img
                 src={heroImage}
-                alt="Professional developer"
-                className="relative rounded-lg shadow-2xl w-full max-w-md mx-auto"
+                alt="Kavisha Parikh"
+                className="relative rounded-lg shadow-2xl w-full max-w-md mx-auto object-cover aspect-square"
                 data-testid="img-hero-photo"
               />
             </motion.div>

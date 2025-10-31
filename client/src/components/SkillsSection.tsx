@@ -4,35 +4,55 @@ import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  SiJavascript, SiTypescript, SiReact, SiNodedotjs, 
-  SiPython, SiDocker, SiKubernetes, SiMongodb, 
-  SiPostgresql, SiRedis, SiGit, SiAmazon 
+  SiJavascript, SiTypescript, SiReact, SiAngular,
+  SiNodedotjs, SiSpringboot, SiRedux, SiCplusplus,
+  SiMongodb, SiMysql, SiNeo4J, SiGit,
+  SiPostman, SiFigma, SiBootstrap, SiTailwindcss
 } from "react-icons/si";
+import { Code2 } from "lucide-react";
 
 interface Skill {
   name: string;
   icon: any;
-  years: number;
-  level: number;
+  category: 'primary' | 'framework' | 'backend' | 'database' | 'tools';
 }
 
-const mainSkills: Skill[] = [
-  { name: "JavaScript", icon: SiJavascript, years: 3, level: 90 },
-  { name: "TypeScript", icon: SiTypescript, years: 2, level: 85 },
-  { name: "React", icon: SiReact, years: 3, level: 90 },
-  { name: "Node.js", icon: SiNodedotjs, years: 3, level: 85 },
-  { name: "Python", icon: SiPython, years: 2, level: 75 },
-  { name: "Docker", icon: SiDocker, years: 2, level: 80 },
+const skills: Skill[] = [
+  // Languages
+  { name: "JavaScript", icon: SiJavascript, category: 'primary' },
+  { name: "TypeScript", icon: SiTypescript, category: 'primary' },
+  { name: "Java", icon: Code2, category: 'primary' },
+  { name: "C++", icon: SiCplusplus, category: 'primary' },
+  
+  // Frameworks
+  { name: "React.js", icon: SiReact, category: 'framework' },
+  { name: "Angular", icon: SiAngular, category: 'framework' },
+  { name: "Redux", icon: SiRedux, category: 'framework' },
+  { name: "Spring Boot", icon: SiSpringboot, category: 'framework' },
+  
+  // Backend
+  { name: "Node.js", icon: SiNodedotjs, category: 'backend' },
+  
+  // Databases
+  { name: "MongoDB", icon: SiMongodb, category: 'database' },
+  { name: "Neo4j", icon: SiNeo4J, category: 'database' },
+  { name: "SQL", icon: SiMysql, category: 'database' },
+  
+  // Tools
+  { name: "Git", icon: SiGit, category: 'tools' },
+  { name: "Postman", icon: SiPostman, category: 'tools' },
+  { name: "Figma", icon: SiFigma, category: 'tools' },
+  { name: "Bootstrap", icon: SiBootstrap, category: 'tools' },
+  { name: "Tailwind", icon: SiTailwindcss, category: 'tools' },
 ];
 
-const otherSkills = [
-  { name: "Kubernetes", icon: SiKubernetes },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "Redis", icon: SiRedis },
-  { name: "Git", icon: SiGit },
-  { name: "AWS", icon: SiAmazon },
-];
+const categories = {
+  primary: "Languages",
+  framework: "Frameworks & Libraries",
+  backend: "Backend & APIs",
+  database: "Databases",
+  tools: "Tools & Design"
+};
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const ref = useRef(null);
@@ -43,31 +63,17 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
     >
-      <Card className="p-6 hover-elevate transition-all duration-300" data-testid={`card-skill-${skill.name.toLowerCase()}`}>
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-primary/10 rounded-lg">
-            <skill.icon className="w-8 h-8 text-primary" />
+      <Card 
+        className="p-6 hover-elevate transition-all duration-300 text-center" 
+        data-testid={`card-skill-${skill.name.toLowerCase()}`}
+      >
+        <div className="flex flex-col items-center gap-3">
+          <div className="p-4 bg-primary/10 rounded-lg">
+            <skill.icon className="w-10 h-10 text-primary" />
           </div>
-          <div>
-            <h3 className="font-semibold text-lg">{skill.name}</h3>
-            <p className="text-sm text-muted-foreground">{skill.years} years</p>
-          </div>
-        </div>
-        <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Proficiency</span>
-            <span className="font-medium">{skill.level}%</span>
-          </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={isInView ? { width: `${skill.level}%` } : {}}
-              transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-              className="h-full bg-primary rounded-full"
-            />
-          </div>
+          <h3 className="font-semibold text-base">{skill.name}</h3>
         </div>
       </Card>
     </motion.div>
@@ -88,47 +94,46 @@ export default function SkillsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-            Skills & Expertise
+            Technical Skills
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Proficient in modern technologies and frameworks with a focus on delivering scalable solutions
+            Proficient in modern technologies with hands-on experience in full-stack development
           </p>
         </motion.div>
 
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6">Main Expertise</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mainSkills.map((skill, index) => (
-              <SkillCard key={skill.name} skill={skill} index={index} />
-            ))}
-          </div>
+        <div className="space-y-12">
+          {Object.entries(categories).map(([key, label]) => {
+            const categorySkills = skills.filter(s => s.category === key);
+            if (categorySkills.length === 0) return null;
+            
+            return (
+              <div key={key}>
+                <h3 className="text-xl font-semibold mb-6 text-center">{label}</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {categorySkills.map((skill, index) => (
+                    <SkillCard key={skill.name} skill={skill} index={index} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 text-center"
         >
-          <h3 className="text-2xl font-semibold mb-6">Additional Skills</h3>
-          <div className="flex flex-wrap gap-4">
-            {otherSkills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Badge 
-                  variant="secondary" 
-                  className="p-3 gap-2 hover-elevate cursor-pointer"
-                  data-testid={`badge-skill-${skill.name.toLowerCase()}`}
-                >
-                  <skill.icon className="w-5 h-5" />
-                  <span>{skill.name}</span>
-                </Badge>
-              </motion.div>
-            ))}
+          <div className="inline-flex flex-wrap justify-center gap-2 max-w-4xl">
+            <Badge variant="secondary">RESTful APIs</Badge>
+            <Badge variant="secondary">JWT Authentication</Badge>
+            <Badge variant="secondary">WebSocket</Badge>
+            <Badge variant="secondary">Agile Methodologies</Badge>
+            <Badge variant="secondary">Swagger</Badge>
+            <Badge variant="secondary">Material-UI</Badge>
+            <Badge variant="secondary">Linux</Badge>
+            <Badge variant="secondary">NPM</Badge>
           </div>
         </motion.div>
       </div>

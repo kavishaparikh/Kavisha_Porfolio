@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -16,7 +16,7 @@ export default function Home() {
         <SkillsSection />
         <ProjectsSection />
         <ExperienceTimeline />
-        <TestimonialsCarousel />
+        <EducationSection />
         <ContactSection />
       </main>
       <Footer />

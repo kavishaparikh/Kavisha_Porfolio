@@ -8,7 +8,7 @@ const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -44,10 +44,11 @@ export default function Navigation() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xl font-bold"
+              className="text-xl font-bold cursor-pointer"
               style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              onClick={() => scrollToSection("#home")}
             >
-              Portfolio
+              Kavisha Parikh
             </motion.div>
 
             <div className="hidden md:flex items-center gap-1">

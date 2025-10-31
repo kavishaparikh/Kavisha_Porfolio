@@ -3,52 +3,56 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Briefcase, Award, Users } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 interface Experience {
   company: string;
   role: string;
+  location: string;
   period: string;
   achievements: string[];
-  icon: any;
 }
 
 const experiences: Experience[] = [
   {
-    company: "Tech Solutions Inc",
-    role: "Senior Full-Stack Developer",
-    period: "2023 - Present",
+    company: "Quasytech",
+    role: "Software Developer",
+    location: "Toronto, Canada",
+    period: "May 2024 - Oct 2024",
     achievements: [
-      "Led development of cloud integration platform serving 500+ users",
-      "Reduced deployment time by 60% through CI/CD automation",
-      "Mentored 5 junior developers in modern web technologies",
-      "Architected microservices infrastructure handling 10M+ requests/month",
+      "Built React.js web applications to support QA management processes",
+      "Worked across all phases of SDLC cycle, including requirements gathering to deployment",
+      "Developed RESTful APIs using Java Spring Boot for seamless frontend-backend communication",
+      "Created production-ready builds and deployed React applications on Vercel",
     ],
-    icon: Briefcase,
   },
   {
-    company: "Digital Innovations Ltd",
-    role: "Full-Stack Developer",
-    period: "2021 - 2023",
+    company: "Visilean Pvt. Ltd.",
+    role: "Software Developer",
+    location: "Ahmedabad, India",
+    period: "Jul 2021 - Jan 2024",
     achievements: [
-      "Built enterprise SSO system supporting 1000+ concurrent users",
-      "Improved application performance by 40% through optimization",
-      "Collaborated with cross-functional teams on 15+ projects",
-      "Implemented testing frameworks increasing code coverage to 85%",
+      "Migrated legacy UI from Knockout.js to React.js, improving user retention by 50%",
+      "Improved application performance by 40% through lazy loading, code splitting, and optimization",
+      "Integrated Google Drive, OneDrive, and Dropbox APIs enabling seamless file sharing",
+      "Implemented JWT authentication for secure login and enhanced user experience",
+      "Built real-time WebSocket integrations and configured RabbitMQ for event-driven communication",
+      "Led a team of 3 developers on successful frontend migration project using Agile practices",
+      "Managed Git workflows, reviewed pull requests, ensuring high-quality maintainable code",
     ],
-    icon: Users,
   },
   {
-    company: "Freelance Projects",
-    role: "Independent Developer",
-    period: "2020 - 2021",
+    company: "Magenta Insights",
+    role: "Frontend Developer Intern",
+    location: "Ahmedabad, India",
+    period: "Jan 2021 - Jun 2021",
     achievements: [
-      "Delivered 20+ successful projects for clients across industries",
-      "Maintained 5-star rating on freelance platforms",
-      "Specialized in rapid prototyping and MVP development",
-      "Built long-term relationships with repeat clients",
+      "Developed interactive React + TypeScript dashboards for client reporting",
+      "Built multiple views: Trend View, GP View, Summary View to enhance data visualization",
+      "Improved state management using Redux, resulting in 15% faster performance",
+      "Built and consumed RESTful APIs with Express.js, reducing response time",
+      "Implemented JWT-based authentication improving data security and session handling",
     ],
-    icon: Award,
   },
 ];
 
@@ -77,19 +81,20 @@ function TimelineItem({ experience, index }: { experience: Experience; index: nu
       <Card className="p-6 hover-elevate transition-all duration-300" data-testid={`card-experience-${index}`}>
         <div className="flex items-start gap-4 mb-4">
           <div className="p-3 bg-primary/10 rounded-lg">
-            <experience.icon className="w-6 h-6 text-primary" />
+            <Briefcase className="w-6 h-6 text-primary" />
           </div>
           <div className="flex-1">
             <h3 className="text-xl font-bold">{experience.role}</h3>
             <p className="text-primary font-semibold">{experience.company}</p>
+            <p className="text-sm text-muted-foreground">{experience.location}</p>
             <Badge variant="secondary" className="mt-2">{experience.period}</Badge>
           </div>
         </div>
         
         <ul className="space-y-2 ml-16">
           {experience.achievements.map((achievement, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="text-primary mt-1">•</span>
+            <li key={idx} className="flex items-start gap-2 text-sm">
+              <span className="text-primary mt-1 flex-shrink-0">•</span>
               <span>{achievement}</span>
             </li>
           ))}
@@ -116,7 +121,7 @@ export default function ExperienceTimeline() {
             Professional Experience
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A track record of delivering impactful solutions and driving technical excellence
+            3.5+ years of hands-on experience in full-stack development across diverse industries
           </p>
         </motion.div>
 

@@ -106,7 +106,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12 text-sm text-muted-foreground"
         >
-          <p>Based in [Your Location] • Working with clients globally</p>
+          <p>Based in Toronto, Canada • Open to global opportunities</p>
         </motion.div>
       </div>
     </section>

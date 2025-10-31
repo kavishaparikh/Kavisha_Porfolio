@@ -5,15 +5,15 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, TrendingUp } from "lucide-react";
-import project1 from "@assets/generated_images/Cloud_storage_platform_interface_14eef75f.png";
+import project1 from "@assets/generated_images/Construction_management_dashboard_interface_4a6fe419.png";
 import project2 from "@assets/generated_images/SSO_authentication_dashboard_interface_adf2782e.png";
-import project3 from "@assets/generated_images/Construction_management_dashboard_interface_4a6fe419.png";
+import project3 from "@assets/generated_images/Cloud_storage_platform_interface_14eef75f.png";
 
 interface Project {
   title: string;
   subtitle: string;
   challenge: string;
-  solution: string;
+  solutions: string[];
   results: { metric: string; value: string }[];
   image: string;
   techStack: string[];
@@ -21,43 +21,61 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Cloud Storage Integration Platform",
-    subtitle: "40% Faster File Access & Collaboration",
-    challenge: "Organizations struggled with data scattered across Google Drive, OneDrive, and Dropbox, leading to inefficient collaboration and security concerns.",
-    solution: "Built a centralized platform that seamlessly integrates multiple cloud storage providers, enabling unified file management, real-time collaboration, and enhanced security protocols.",
+    title: "Construction Management Platform",
+    subtitle: "50% Improvement in User Retention",
+    challenge: "Legacy UI built with Knockout.js was outdated, slow, and hindering user experience. The platform needed modernization without disrupting ongoing operations.",
+    solutions: [
+      "Migrated entire UI from Knockout.js to React.js with component-based architecture",
+      "Implemented lazy loading and code splitting for optimal performance",
+      "Optimized components and reduced bundle size by 40%",
+      "Led team of 3 developers through Agile migration process",
+      "Integrated Google Drive, OneDrive, and Dropbox APIs for seamless file sharing"
+    ],
     results: [
+      { metric: "User Retention", value: "+50%" },
       { metric: "Performance", value: "+40%" },
-      { metric: "Users", value: "500+" },
-      { metric: "Storage Unified", value: "5TB+" },
+      { metric: "Team Size", value: "3 Devs" },
     ],
     image: project1,
-    techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Docker", "RabbitMQ"],
+    techStack: ["React.js", "TypeScript", "JWT", "WebSocket", "RabbitMQ", "Git"],
   },
   {
-    title: "Enterprise SSO Authentication System",
-    subtitle: "Secure Single Sign-On for 1000+ Users",
-    challenge: "Manual user management across multiple applications created security vulnerabilities and administrative overhead for enterprise clients.",
-    solution: "Developed a custom Keycloak-based SSO solution with real-time user federation, reducing manual processes by 80% while strengthening security compliance.",
+    title: "InsightStream Analytics Platform",
+    subtitle: "Real-Time Business Intelligence Dashboard",
+    challenge: "Clients needed fast, intuitive ways to analyze complex business data without manual paperwork or time-consuming processes.",
+    solutions: [
+      "Built interactive dashboards with React and TypeScript for real-time data visualization",
+      "Developed multiple specialized views: Trend View, GP View, Summary View, Item View, and Map View",
+      "Implemented Redux for efficient state management, improving performance by 15%",
+      "Created RESTful APIs with Express.js for fast data retrieval",
+      "Integrated JWT-based authentication for secure data access"
+    ],
     results: [
-      { metric: "Manual Work", value: "-80%" },
-      { metric: "Active Users", value: "1000+" },
-      { metric: "Apps Integrated", value: "15+" },
+      { metric: "Performance", value: "+15%" },
+      { metric: "Views Built", value: "5+" },
+      { metric: "Response Time", value: "Optimized" },
     ],
     image: project2,
-    techStack: ["Java", "Quarkus", "MySQL", "JavaScript", "OAuth"],
+    techStack: ["React", "TypeScript", "Redux", "Express.js", "Node.js", "JWT"],
   },
   {
-    title: "Construction Management Platform",
-    subtitle: "Advanced Project Planning & Scheduling",
-    challenge: "Construction teams needed better visibility into complex project lifecycles with efficient scheduling and resource management capabilities.",
-    solution: "Created a comprehensive project management system with Gantt charts, schedulers, and multi-format data import/export, empowering teams with real-time insights.",
+    title: "Cloud Storage Integration Hub",
+    subtitle: "Unified Multi-Cloud File Management",
+    challenge: "Users struggled with managing files across multiple cloud storage platforms, leading to inefficient workflows and collaboration bottlenecks.",
+    solutions: [
+      "Integrated Google Drive, OneDrive, and Dropbox APIs into a unified interface",
+      "Built seamless file sharing and collaboration features",
+      "Implemented real-time WebSocket communication for instant updates",
+      "Configured RabbitMQ for asynchronous event-driven architecture",
+      "Ensured secure data handling with JWT authentication"
+    ],
     results: [
-      { metric: "Planning Speed", value: "+60%" },
-      { metric: "Projects Managed", value: "50+" },
-      { metric: "Team Efficiency", value: "+45%" },
+      { metric: "Platforms", value: "3 Clouds" },
+      { metric: "Collaboration", value: "Enhanced" },
+      { metric: "Real-time", value: "WebSocket" },
     ],
     image: project3,
-    techStack: ["React", "TypeScript", "Spring Boot", "MySQL", "Git"],
+    techStack: ["React", "WebSocket", "RabbitMQ", "JWT", "Cloud APIs"],
   },
 ];
 
@@ -105,8 +123,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               </div>
               
               <div>
-                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wide text-muted-foreground">Solution</h4>
-                <p className="text-foreground">{project.solution}</p>
+                <h4 className="font-semibold mb-2 text-sm uppercase tracking-wide text-muted-foreground">Solutions Delivered</h4>
+                <ul className="space-y-2">
+                  {project.solutions.map((solution, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm">
+                      <span className="text-primary mt-1 flex-shrink-0">•</span>
+                      <span>{solution}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -132,11 +157,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 ))}
               </div>
             </div>
-
-            <Button variant="outline" className="gap-2" data-testid={`button-view-case-${index}`}>
-              View Case Study
-              <ExternalLink className="w-4 h-4" />
-            </Button>
           </div>
         </div>
       </Card>
@@ -161,7 +181,7 @@ export default function ProjectsSection() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Case studies showcasing problem-solving approaches and measurable results
+            Real-world solutions showcasing technical expertise and measurable impact
           </p>
         </motion.div>
 
