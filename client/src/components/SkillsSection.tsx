@@ -7,52 +7,41 @@ import {
   SiJavascript, SiTypescript, SiReact, SiAngular,
   SiNodedotjs, SiSpringboot, SiRedux, SiCplusplus,
   SiMongodb, SiMysql, SiNeo4J, SiGit,
-  SiPostman, SiFigma, SiBootstrap, SiTailwindcss
+  SiPostman, SiFigma, SiBootstrap, SiTailwindcss,
+  SiHtml5, SiCss3, SiJquery
 } from "react-icons/si";
 import { Code2 } from "lucide-react";
 
 interface Skill {
   name: string;
   icon: any;
-  category: 'primary' | 'framework' | 'backend' | 'database' | 'tools';
 }
 
-const skills: Skill[] = [
-  // Languages
-  { name: "JavaScript", icon: SiJavascript, category: 'primary' },
-  { name: "TypeScript", icon: SiTypescript, category: 'primary' },
-  { name: "Java", icon: Code2, category: 'primary' },
-  { name: "C++", icon: SiCplusplus, category: 'primary' },
-  
-  // Frameworks
-  { name: "React.js", icon: SiReact, category: 'framework' },
-  { name: "Angular", icon: SiAngular, category: 'framework' },
-  { name: "Redux", icon: SiRedux, category: 'framework' },
-  { name: "Spring Boot", icon: SiSpringboot, category: 'framework' },
-  
-  // Backend
-  { name: "Node.js", icon: SiNodedotjs, category: 'backend' },
-  
-  // Databases
-  { name: "MongoDB", icon: SiMongodb, category: 'database' },
-  { name: "Neo4j", icon: SiNeo4J, category: 'database' },
-  { name: "SQL", icon: SiMysql, category: 'database' },
-  
-  // Tools
-  { name: "Git", icon: SiGit, category: 'tools' },
-  { name: "Postman", icon: SiPostman, category: 'tools' },
-  { name: "Figma", icon: SiFigma, category: 'tools' },
-  { name: "Bootstrap", icon: SiBootstrap, category: 'tools' },
-  { name: "Tailwind", icon: SiTailwindcss, category: 'tools' },
+const mainExpertise: Skill[] = [
+  { name: "React.js", icon: SiReact },
+  { name: "Java", icon: Code2 },
+  { name: "Spring Boot", icon: SiSpringboot },
+  { name: "JavaScript", icon: SiJavascript },
 ];
 
-const categories = {
-  primary: "Languages",
-  framework: "Frameworks & Libraries",
-  backend: "Backend & APIs",
-  database: "Databases",
-  tools: "Tools & Design"
-};
+const additionalSkills: Skill[] = [
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Angular", icon: SiAngular },
+  { name: "Redux", icon: SiRedux },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "C++", icon: SiCplusplus },
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "CSS3", icon: SiCss3 },
+  { name: "jQuery", icon: SiJquery },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Neo4j", icon: SiNeo4J },
+  { name: "SQL", icon: SiMysql },
+  { name: "Git", icon: SiGit },
+  { name: "Postman", icon: SiPostman },
+  { name: "Figma", icon: SiFigma },
+  { name: "Bootstrap", icon: SiBootstrap },
+  { name: "Tailwind", icon: SiTailwindcss },
+];
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const ref = useRef(null);
@@ -102,21 +91,25 @@ export default function SkillsSection() {
         </motion.div>
 
         <div className="space-y-12">
-          {Object.entries(categories).map(([key, label]) => {
-            const categorySkills = skills.filter(s => s.category === key);
-            if (categorySkills.length === 0) return null;
-            
-            return (
-              <div key={key}>
-                <h3 className="text-xl font-semibold mb-6 text-center">{label}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {categorySkills.map((skill, index) => (
-                    <SkillCard key={skill.name} skill={skill} index={index} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          {/* Main Expertise */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-6 text-center">Main Expertise</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {mainExpertise.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Skills */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-6 text-center">Additional Skills</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {additionalSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index + 4} />
+              ))}
+            </div>
+          </div>
         </div>
 
         <motion.div
@@ -133,7 +126,8 @@ export default function SkillsSection() {
             <Badge variant="secondary">Swagger</Badge>
             <Badge variant="secondary">Material-UI</Badge>
             <Badge variant="secondary">Linux</Badge>
-            <Badge variant="secondary">NPM</Badge>
+            <Badge variant="secondary">Express.js</Badge>
+            <Badge variant="secondary">Knockout JS</Badge>
           </div>
         </motion.div>
       </div>

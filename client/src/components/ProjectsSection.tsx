@@ -3,11 +3,10 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import project1 from "@assets/generated_images/Construction_management_dashboard_interface_4a6fe419.png";
-import project2 from "@assets/generated_images/SSO_authentication_dashboard_interface_adf2782e.png";
-import project3 from "@assets/generated_images/Cloud_storage_platform_interface_14eef75f.png";
+import project2 from "@assets/stock_images/business_analytics_d_018471b4.jpg";
+import project4 from "@assets/stock_images/qa_testing_quality_a_3c1ffd0a.jpg";
 
 interface Project {
   title: string;
@@ -15,7 +14,7 @@ interface Project {
   challenge: string;
   solutions: string[];
   results: { metric: string; value: string }[];
-  image: string;
+  image?: string;
   techStack: string[];
 }
 
@@ -37,7 +36,7 @@ const projects: Project[] = [
       { metric: "Team Size", value: "3 Devs" },
     ],
     image: project1,
-    techStack: ["React.js", "TypeScript", "JWT", "WebSocket", "RabbitMQ", "Git"],
+    techStack: ["React.js", "TypeScript", "Java", "Microservices", "Spring Boot", "JWT", "WebSocket", "RabbitMQ"],
   },
   {
     title: "InsightStream Analytics Platform",
@@ -64,18 +63,36 @@ const projects: Project[] = [
     challenge: "Users struggled with managing files across multiple cloud storage platforms, leading to inefficient workflows and collaboration bottlenecks.",
     solutions: [
       "Integrated Google Drive, OneDrive, and Dropbox APIs into a unified interface",
-      "Built seamless file sharing and collaboration features",
+      "Built seamless file sharing and collaboration features using React",
       "Implemented real-time WebSocket communication for instant updates",
       "Configured RabbitMQ for asynchronous event-driven architecture",
-      "Ensured secure data handling with JWT authentication"
+      "Developed RESTful APIs with Java Spring Boot for backend processing"
     ],
     results: [
       { metric: "Platforms", value: "3 Clouds" },
       { metric: "Collaboration", value: "Enhanced" },
       { metric: "Real-time", value: "WebSocket" },
     ],
-    image: project3,
-    techStack: ["React", "WebSocket", "RabbitMQ", "JWT", "Cloud APIs"],
+    techStack: ["React", "Java", "Spring Boot", "WebSocket", "RabbitMQ", "JWT", "Cloud APIs"],
+  },
+  {
+    title: "QA Management Web Platform",
+    subtitle: "Streamlined Quality Assurance Workflow",
+    challenge: "Quality assurance processes needed a modern web platform to support comprehensive testing workflows across the full SDLC.",
+    solutions: [
+      "Built React.js web applications to support QA management processes",
+      "Worked across all phases of SDLC cycle from requirements gathering to deployment",
+      "Developed RESTful APIs using Java Spring Boot for seamless frontend-backend communication",
+      "Created production-ready builds and deployed React applications on Vercel",
+      "Ensured fast and reliable hosting with optimized performance"
+    ],
+    results: [
+      { metric: "Full SDLC", value: "Coverage" },
+      { metric: "Platform", value: "Vercel" },
+      { metric: "Performance", value: "Optimized" },
+    ],
+    image: project4,
+    techStack: ["React.js", "Java", "Spring Boot", "RESTful APIs", "Vercel"],
   },
 ];
 
@@ -93,17 +110,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       className="mb-20"
     >
       <Card className="overflow-hidden hover-elevate transition-all duration-300" data-testid={`card-project-${index}`}>
-        <div className={`grid lg:grid-cols-2 gap-0 ${isEven ? "" : "lg:grid-flow-dense"}`}>
-          <div className={`relative overflow-hidden ${isEven ? "" : "lg:col-start-2"}`}>
-            <motion.img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              data-testid={`img-project-${index}`}
-            />
-          </div>
+        <div className={`grid ${project.image ? 'lg:grid-cols-2' : 'lg:grid-cols-1'} gap-0 ${isEven || !project.image ? "" : "lg:grid-flow-dense"}`}>
+          {project.image && (
+            <div className={`relative overflow-hidden ${isEven ? "" : "lg:col-start-2"}`}>
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                data-testid={`img-project-${index}`}
+              />
+            </div>
+          )}
           
           <div className="p-8 lg:p-12 space-y-6">
             <div>

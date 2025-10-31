@@ -22,10 +22,6 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <Badge className="text-sm" data-testid="badge-availability">
-              Available for Freelance Projects
-            </Badge>
-            
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -119,7 +115,7 @@ export default function HeroSection() {
               <img
                 src={heroImage}
                 alt="Kavisha Parikh"
-                className="relative rounded-lg shadow-2xl w-full max-w-md mx-auto object-cover aspect-square"
+                className="relative rounded-lg shadow-2xl w-full max-w-md mx-auto object-cover object-top h-[500px]"
                 data-testid="img-hero-photo"
               />
             </motion.div>
