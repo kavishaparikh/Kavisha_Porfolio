@@ -1,0 +1,25 @@
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import SkillsSection from "@/components/SkillsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      <main id="home">
+        <HeroSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ExperienceTimeline />
+        <TestimonialsCarousel />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
+}
