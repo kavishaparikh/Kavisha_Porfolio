@@ -12,67 +12,81 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <h3 className="font-bold text-2xl mb-3" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+            <h3
+              className="font-bold text-2xl mb-3"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
               Kavisha Parikh
             </h3>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Full-stack software developer passionate about creating exceptional web experiences. 
-              Let's build something amazing together.
+              Full-stack software developer passionate about creating
+              exceptional web experiences. Let's build something amazing
+              together.
             </p>
             <div className="flex gap-3">
-              <Button 
-                size="icon" 
+              <Button
+                size="icon"
                 variant="outline"
-                onClick={() => window.open('https://www.linkedin.com/in/kavisha-parikh', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kavishaparikh/",
+                    "_blank"
+                  )
+                }
                 data-testid="footer-linkedin"
               >
                 <Linkedin className="w-4 h-4" />
               </Button>
-              <Button 
-                size="icon" 
+              <Button
+                size="icon"
                 variant="outline"
-                onClick={() => window.location.href = 'mailto:kavishap05@gmail.com'}
+                onClick={() =>
+                  window.open(
+                    "https://mail.google.com/mail/?view=cm&to=kavishap05@gmail.com",
+                    "_blank"
+                  )
+                }
                 data-testid="footer-email"
               >
                 <Mail className="w-4 h-4" />
               </Button>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              <button 
-                onClick={() => scrollToSection('skills')}
+              <button
+                onClick={() => scrollToSection("skills")}
                 className="text-sm text-muted-foreground hover:text-foreground text-left transition-colors"
               >
                 Skills
               </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="text-sm text-muted-foreground hover:text-foreground text-left transition-colors"
               >
                 Projects
               </button>
-              <button 
-                onClick={() => scrollToSection('experience')}
+              <button
+                onClick={() => scrollToSection("experience")}
                 className="text-sm text-muted-foreground hover:text-foreground text-left transition-colors"
               >
                 Experience
               </button>
-              <button 
-                onClick={() => scrollToSection('education')}
+              <button
+                onClick={() => scrollToSection("education")}
                 className="text-sm text-muted-foreground hover:text-foreground text-left transition-colors"
               >
                 Education
               </button>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Info</h4>
             <div className="space-y-3">
-              <a 
+              <a
                 href="mailto:kavishap05@gmail.com"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -80,17 +94,13 @@ export default function Footer() {
                 <span>kavishap05@gmail.com</span>
               </a>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>+91 8490963334</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
-                <span>Toronto, Canada</span>
+                <span>India</span>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div className="border-t pt-6 text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Kavisha Parikh. All rights reserved.

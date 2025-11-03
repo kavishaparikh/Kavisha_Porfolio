@@ -11,9 +11,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-6 py-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-      
+
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -30,76 +30,91 @@ export default function HeroSection() {
               style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
               Kavisha Parikh
-              <span className="block text-primary mt-2">Software Developer</span>
+              <span className="block text-primary mt-2">
+                Software Developer
+              </span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg text-muted-foreground max-w-lg"
             >
-              Experienced full-stack developer with 3.5+ years specializing in React.js, 
-              TypeScript, and modern web technologies. Passionate about building scalable, 
-              high-performance applications with exceptional user experiences.
+              Experienced full-stack developer with 3.5+ years specializing in
+              React.js, TypeScript, and modern web technologies. Passionate
+              about building scalable, high-performance applications with
+              exceptional user experiences.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 onClick={() => scrollToSection("contact")}
                 data-testid="button-hire-me"
               >
                 Hire Me
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("projects")}
                 data-testid="button-view-projects"
               >
                 View Projects
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                data-testid="button-download-resume"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Resume
-              </Button>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1 }}
               className="flex gap-4 pt-4"
             >
-              <Button 
-                size="icon" 
-                variant="ghost" 
+              <Button
+                size="icon"
+                variant="ghost"
                 data-testid="button-linkedin"
-                onClick={() => window.open('https://www.linkedin.com/in/kavisha-parikh', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kavishaparikh",
+                    "_blank"
+                  )
+                }
               >
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
+              <Button
+                size="icon"
+                variant="ghost"
                 data-testid="button-email"
-                onClick={() => window.location.href = 'mailto:kavishap05@gmail.com'}
+                onClick={() =>
+                  window.open(
+                    "https://mail.google.com/mail/?view=cm&to=kavishap05@gmail.com",
+                    "_blank"
+                  )
+                }
               >
                 <Mail className="w-5 h-5" />
               </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                data-testid="button-email"
+                onClick={() =>
+                  window.open("https://github.com/kavishaparikh", "_blank")
+                }
+              >
+                <Github className="w-5 h-5" />
+              </Button>
             </motion.div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}

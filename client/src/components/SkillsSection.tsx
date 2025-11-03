@@ -3,12 +3,26 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  SiJavascript, SiTypescript, SiReact, SiAngular,
-  SiNodedotjs, SiSpringboot, SiRedux, SiCplusplus,
-  SiMongodb, SiMysql, SiNeo4J, SiGit,
-  SiPostman, SiFigma, SiBootstrap, SiTailwindcss,
-  SiHtml5, SiCss3, SiJquery
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiAngular,
+  SiNodedotjs,
+  SiSpringboot,
+  SiRedux,
+  SiCplusplus,
+  SiMongodb,
+  SiMysql,
+  SiNeo4J,
+  SiGit,
+  SiPostman,
+  SiFigma,
+  SiBootstrap,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiJquery,
 } from "react-icons/si";
 import { Code2 } from "lucide-react";
 
@@ -29,7 +43,6 @@ const additionalSkills: Skill[] = [
   { name: "Angular", icon: SiAngular },
   { name: "Redux", icon: SiRedux },
   { name: "Node.js", icon: SiNodedotjs },
-  { name: "C++", icon: SiCplusplus },
   { name: "HTML5", icon: SiHtml5 },
   { name: "CSS3", icon: SiCss3 },
   { name: "jQuery", icon: SiJquery },
@@ -54,8 +67,8 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.05 }}
     >
-      <Card 
-        className="p-6 hover-elevate transition-all duration-300 text-center" 
+      <Card
+        className="p-6 hover-elevate transition-all duration-300 text-center"
         data-testid={`card-skill-${skill.name.toLowerCase()}`}
       >
         <div className="flex flex-col items-center gap-3">
@@ -74,7 +87,7 @@ export default function SkillsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-20 px-6" ref={ref}>
+    <section id="skills" className="py-10 px-6" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,18 +95,24 @@ export default function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+          <h2
+            className="text-4xl font-bold mb-4"
+            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+          >
             Technical Skills
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Proficient in modern technologies with hands-on experience in full-stack development
+            Proficient in modern technologies with hands-on experience in
+            full-stack development
           </p>
         </motion.div>
 
         <div className="space-y-12">
           {/* Main Expertise */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-center">Main Expertise</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-center">
+              Main Expertise
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {mainExpertise.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
@@ -103,7 +122,9 @@ export default function SkillsSection() {
 
           {/* Additional Skills */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-center">Additional Skills</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-center">
+              Additional Skills
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {additionalSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index + 4} />

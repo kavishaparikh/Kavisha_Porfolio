@@ -14,9 +14,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 relative overflow-hidden" ref={ref}>
+    <section
+      id="contact"
+      className="py-10 px-6 relative overflow-hidden"
+      ref={ref}
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
-      
+
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,11 +28,15 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+          <h2
+            className="text-4xl lg:text-5xl font-bold mb-4"
+            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+          >
             Let's Build Something Amazing Together
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to start your project? Get in touch and let's discuss how I can help bring your vision to life.
+            Ready to start your project? Get in touch and let's discuss how I
+            can help bring your vision to life.
           </p>
         </motion.div>
 
@@ -54,59 +62,45 @@ export default function ContactSection() {
                 size="lg"
                 variant="outline"
                 className="h-auto py-6 flex-col gap-2 hover-elevate"
-                onClick={() => handleContact('email')}
+                onClick={() => handleContact("email")}
                 data-testid="button-contact-email"
               >
                 <Mail className="w-6 h-6" />
                 <span className="font-semibold">Email</span>
-                <span className="text-xs text-muted-foreground">Quick response</span>
+                <span className="text-xs text-muted-foreground">
+                  Quick response
+                </span>
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
                 className="h-auto py-6 flex-col gap-2 hover-elevate"
-                onClick={() => handleContact('calendar')}
+                onClick={() => handleContact("calendar")}
                 data-testid="button-contact-calendar"
               >
                 <Calendar className="w-6 h-6" />
                 <span className="font-semibold">Schedule Call</span>
-                <span className="text-xs text-muted-foreground">Book a meeting</span>
+                <span className="text-xs text-muted-foreground">
+                  Book a meeting
+                </span>
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
                 className="h-auto py-6 flex-col gap-2 hover-elevate"
-                onClick={() => handleContact('message')}
+                onClick={() => handleContact("message")}
                 data-testid="button-contact-message"
               >
                 <MessageCircle className="w-6 h-6" />
                 <span className="font-semibold">Chat</span>
-                <span className="text-xs text-muted-foreground">Instant messaging</span>
-              </Button>
-            </div>
-
-            <div className="text-center">
-              <Button
-                size="lg"
-                className="px-12"
-                onClick={() => handleContact('primary')}
-                data-testid="button-start-project"
-              >
-                Start a Project
+                <span className="text-xs text-muted-foreground">
+                  Instant messaging
+                </span>
               </Button>
             </div>
           </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12 text-sm text-muted-foreground"
-        >
-          <p>Based in Toronto, Canada • Open to global opportunities</p>
         </motion.div>
       </div>
     </section>

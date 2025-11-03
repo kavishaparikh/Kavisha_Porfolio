@@ -9,7 +9,6 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -36,7 +35,9 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-lg border-b shadow-sm" : "bg-transparent"
+          isScrolled
+            ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
