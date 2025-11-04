@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp } from "lucide-react";
 import project1 from "@assets/generated_images/Construction_management_dashboard_interface_4a6fe419.png";
 import project2 from "@assets/stock_images/business_analytics_d_018471b4.jpg";
-import project4 from "@assets/stock_images/qa_testing_quality_a_3c1ffd0a.jpg";
+import project4 from "@assets/stock_images/quasytech.png";
 
 interface Project {
   title: string;
@@ -128,7 +128,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="mb-20"
+      className="mb-5"
     >
       <Card
         className="overflow-hidden hover-elevate transition-all duration-300"
@@ -148,7 +148,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <motion.img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 data-testid={`img-project-${index}`}
@@ -193,7 +193,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
                 Results
               </h4>
@@ -204,7 +204,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     className="text-center p-3 bg-primary/5 rounded-lg"
                     data-testid={`text-result-${index}-${idx}`}
                   >
-                    <div className="text-2xl font-bold text-primary">
+                    <div className="text font-bold text-primary">
                       {result.value}
                     </div>
                     <div className="text-xs text-muted-foreground mt-1">
@@ -213,7 +213,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div>
               <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">

@@ -45,15 +45,10 @@ const additionalSkills: Skill[] = [
   { name: "Node.js", icon: SiNodedotjs },
   { name: "HTML5", icon: SiHtml5 },
   { name: "CSS3", icon: SiCss3 },
-  { name: "jQuery", icon: SiJquery },
   { name: "MongoDB", icon: SiMongodb },
   { name: "Neo4j", icon: SiNeo4J },
   { name: "SQL", icon: SiMysql },
   { name: "Git", icon: SiGit },
-  { name: "Postman", icon: SiPostman },
-  { name: "Figma", icon: SiFigma },
-  { name: "Bootstrap", icon: SiBootstrap },
-  { name: "Tailwind", icon: SiTailwindcss },
 ];
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
@@ -149,6 +144,10 @@ export default function SkillsSection() {
             <Badge variant="secondary">Linux</Badge>
             <Badge variant="secondary">Express.js</Badge>
             <Badge variant="secondary">Knockout JS</Badge>
+            <Badge variant="secondary">Figma</Badge>
+            <Badge variant="secondary">Postman</Badge>
+            <Badge variant="secondary">Bootstrap</Badge>
+            <Badge variant="secondary">Tailwind</Badge>
           </div>
         </motion.div>
       </div>

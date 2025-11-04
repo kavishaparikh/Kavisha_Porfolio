@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-10 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
